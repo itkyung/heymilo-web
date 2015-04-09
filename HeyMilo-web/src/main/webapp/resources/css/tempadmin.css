@@ -1,0 +1,79 @@
+img { border : 0 }
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+	height : 100%;
+    margin : 0px;
+    padding : 0px;
+   
+
+    font-family : nanumgothic,'나눔고딕','Malgun Gothic','맑은 고딕',"Helvetica Neue", 'Helvetica','굴림',gulim,AppleGothic !important;
+    color : black;
+    background-image: url("../images/bg.png");
+    background-repeat: repeat;
+}
+
+
+
+#main-container{
+	position : relative;
+	
+}
+
+
+#main-header {
+	height : 55px;
+	text-align : left;
+	line-height : 55px;
+	border-bottom : 1px solid #fef122;
+}
+
+#main-body-wrapper {
+
+	min-height : 500px;
+	text-align : left;
+
+}
+
+#main-footer{
+	border-top : 1px solid #fef122;
+	margin-top : 10px;
+	height : 50px;
+	line-height : 50px;
+}
+
+.main-header-inner .header-logo {
+	float : left;
+	display : block;	
+}
+
+.main-header-inner .login-area {
+	float : right;
+	margin-right : 10px;
+}
+
+.align-center {
+	text-align : center;
+}
+
+.hey-tab {
+	padding-top : 15px;
+}
+
+#imageUploadWrapper {
+	overflow : auto;
+}
+
+#imageUploadLeft {
+	float : left;
+	width : 250px;
+}
+
+#imageUploadRight {
+	float : left;
+}

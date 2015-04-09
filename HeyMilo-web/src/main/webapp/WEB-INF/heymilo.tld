@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+ 	<display-name>OpenGarden Taglib</display-name>
+ 	<tlib-version>1.0</tlib-version>
+	<short-name>opengarden</short-name>
+	<uri>http://www.heymilo.com/taglibs</uri>
+	
+	<function>
+		<name>substring</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String getSubstring(java.lang.String,int)</function-signature>
+	</function>		
+	<function>
+		<name>isAm</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.boolean isAm(java.lang.String)</function-signature>
+	</function>			
+	<function>
+		<name>parseToAmPm</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String parseToAmPm(java.lang.String)</function-signature>
+	</function>		
+	<function>
+		<name>formatDate</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String formatDate(java.util.Date)</function-signature>
+	</function>	
+	<function>
+		<name>formatDateTime</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String formatDateTime(java.util.Date)</function-signature>
+	</function>	
+	<function>
+		<name>formatNumber</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String formatNumber(double)</function-signature>		
+	</function>
+	<function>
+		<name>formatInt</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>java.lang.String formatInt(double)</function-signature>		
+	</function>	
+	<function>
+		<name>funcMinus</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>int minus(int,int)</function-signature>		
+	</function>	
+	<function>
+		<name>contains</name>
+		<function-class>com.heymilo.ui.JSPTagUtil</function-class>
+		<function-signature>boolean contains(java.lang.Long,java.util.Set)</function-signature>		
+	</function>	
+</taglib>
