@@ -183,7 +183,7 @@ public class UserDAOImpl implements UserDAO {
 	public int countUsers(String keyword, UserStatus status) {
 		StringBuffer sql = new StringBuffer("SELECT count(*) FROM User a WHERE a.active = :active AND a.adminUser = :adminUser ");
 		
-		if(keyword != null){
+		if(keyword != null && !"".equals(keyword)){
 			sql.append("AND (a.name = :name OR a.loginId = :loginId) ");
 		}
 		if(status != null){
@@ -194,7 +194,7 @@ public class UserDAOImpl implements UserDAO {
 		Query query = em.createQuery(sql.toString());
 		query.setParameter("active", true);
 		query.setParameter("adminUser",false);
-		if(keyword != null){
+		if(keyword != null  && !"".equals(keyword)){
 			query.setParameter("name", keyword);
 			query.setParameter("loginId", keyword);
 		}	

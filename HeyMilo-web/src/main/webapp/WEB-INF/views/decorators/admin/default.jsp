@@ -124,7 +124,7 @@
 				      	<li class="dropdown">
 				        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">회원관리</a>
 				        	<ul class="dropdown-menu">
-					            <li><a href="">가입한 회원</a></li>
+					            <li><a href="${pageContext.request.contextPath}/admin/listUsers">가입한 회원</a></li>
 					         </ul>
 				        </li>
 				        <li class="dropdown">

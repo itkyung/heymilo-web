@@ -39,6 +39,8 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
 			response.getWriter().print(CommonUtils.toJsonResult(false,errorCode,null));
 			response.getWriter().flush();
 			return;
+		} else {
+			response.sendRedirect(request.getContextPath() + "/login/loginForm?error=true");
 		}
 	}
 

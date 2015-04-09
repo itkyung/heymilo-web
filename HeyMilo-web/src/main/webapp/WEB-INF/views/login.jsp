@@ -10,6 +10,10 @@
 	<c:url value="/login/registAction" var="registActionUrl"/>
 	<script>
 	
+		<c:if test="${!empty error}">
+			alert("아이디나 비밀번호가 다릅니다. 다시 시도하세요.");
+		</c:if>
+	
 	$(document).ready(function(){
 		$('#pwd').keyup(function(e) {
 		    if (e.keyCode == 13) {

@@ -28,8 +28,10 @@ public class LoginController {
 	private Log log = LogFactory.getLog(LoginController.class);
 	
 	@RequestMapping(value="/loginForm",method=RequestMethod.GET)
-	public String loginForm(Model model){
-		
+	public String loginForm(@RequestParam(value="error",required=false) Boolean error, Model model){
+		if(error != null && error == true){
+			model.addAttribute("error",true);
+		}
 		return "/login";
 	}
 	
