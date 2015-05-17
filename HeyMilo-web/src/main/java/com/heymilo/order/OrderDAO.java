@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.heymilo.order.entity.OneTimeOrder;
 import com.heymilo.order.entity.Order;
-import com.heymilo.order.entity.SubscriptionOrder;
+import com.heymilo.subscription.entity.SubscriptionOrder;
 import com.heymilo.ui.param.OrderSearchModel;
 
 public interface OrderDAO {

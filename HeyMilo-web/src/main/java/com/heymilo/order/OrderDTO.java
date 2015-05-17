@@ -3,6 +3,8 @@ package com.heymilo.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.heymilo.payment.PaymentDTO;
+
 public class OrderDTO {
 	
 	private double totalPrice;
@@ -20,8 +22,14 @@ public class OrderDTO {
 	
 	private String receiveName;	//수령자 이름  
 	
+	private Long cartId;	//장바구니 아이디 
+	
+	private Long addressBookId;	//주소록 아이디
+	
 	private List<OrderItemDto> orderItems = new ArrayList<OrderItemDto>();
 
+	private PaymentDTO paymentParam = new PaymentDTO();
+	
 	public double getTotalPrice() {
 		return totalPrice;
 	}
@@ -84,6 +92,30 @@ public class OrderDTO {
 
 	public void setOrderItems(List<OrderItemDto> orderItems) {
 		this.orderItems = orderItems;
+	}
+
+	public PaymentDTO getPaymentParam() {
+		return paymentParam;
+	}
+
+	public void setPaymentParam(PaymentDTO paymentParam) {
+		this.paymentParam = paymentParam;
+	}
+
+	public Long getAddressBookId() {
+		return addressBookId;
+	}
+
+	public void setAddressBookId(Long addressBookId) {
+		this.addressBookId = addressBookId;
+	}
+
+	public Long getCartId() {
+		return cartId;
+	}
+
+	public void setCartId(Long cartId) {
+		this.cartId = cartId;
 	}
 	
 	

@@ -22,6 +22,7 @@ import com.heymilo.identity.UserDAO;
 import com.heymilo.identity.UserDTO;
 import com.heymilo.identity.UserService;
 import com.heymilo.identity.SocialType;
+import com.heymilo.identity.entity.AddressBook;
 import com.heymilo.identity.entity.Role;
 import com.heymilo.identity.entity.User;
 import com.heymilo.identity.entity.UserRoles;
@@ -218,6 +219,13 @@ public class UserServiceImpl implements ILogin,UserService {
 	@Override
 	public int countUsers(String keyword, UserStatus status) {
 		return dao.countUsers(keyword, status);
+	}
+
+	
+	@Override
+	public AddressBook findUserActiveAddress(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

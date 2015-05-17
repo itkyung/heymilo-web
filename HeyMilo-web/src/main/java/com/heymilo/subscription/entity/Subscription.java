@@ -1,4 +1,4 @@
-package com.heymilo.order.entity;
+package com.heymilo.subscription.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

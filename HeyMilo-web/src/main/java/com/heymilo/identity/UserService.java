@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.ManyToOne;
 
+import com.heymilo.identity.entity.AddressBook;
 import com.heymilo.identity.entity.User;
 import com.heymilo.identity.entity.UserStatus;
 
@@ -27,4 +28,5 @@ public interface UserService {
 	
 	List<UserDTO> searchUsers(String keyword, UserStatus status, int start, int limits);
 	int countUsers(String keyword, UserStatus status);
+	AddressBook findUserActiveAddress(User user);
 }

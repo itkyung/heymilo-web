@@ -1,4 +1,4 @@
-package com.heymilo.order.entity;
+package com.heymilo.payment;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.heymilo.identity.entity.User;
+import com.heymilo.order.entity.Order;
 
 @Entity
 @Table(name=Payment.TABLE_NAME)

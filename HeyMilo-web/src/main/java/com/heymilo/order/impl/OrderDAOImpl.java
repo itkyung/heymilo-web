@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.heymilo.order.OrderDAO;
 import com.heymilo.order.entity.OneTimeOrder;
 import com.heymilo.order.entity.Order;
-import com.heymilo.order.entity.SubscriptionOrder;
 import com.heymilo.shop.entity.Product;
+import com.heymilo.subscription.entity.SubscriptionOrder;
 import com.heymilo.ui.param.OrderSearchModel;
 
 @Repository

@@ -61,6 +61,8 @@ public class Order {
 	
 	private BigDecimal totalPrice;
 	
+	private BigDecimal paymentPrice;	//고객이 실제로 결제하는 가격.
+	
 	private boolean active;
 	
 	private String productDesc;	//주문한 상품들에 대한 내용정보..
@@ -275,6 +277,14 @@ public class Order {
 
 	public void setReturnRequestedAt(Date returnRequestedAt) {
 		this.returnRequestedAt = returnRequestedAt;
+	}
+
+	public BigDecimal getPaymentPrice() {
+		return paymentPrice;
+	}
+
+	public void setPaymentPrice(BigDecimal paymentPrice) {
+		this.paymentPrice = paymentPrice;
 	}
 	
 	

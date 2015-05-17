@@ -18,18 +18,19 @@ import com.heymilo.order.OrderDTO;
 import com.heymilo.order.OrderItemDto;
 import com.heymilo.order.OrderService;
 import com.heymilo.order.OrderUpdateDTO;
-import com.heymilo.order.PaymentService;
 import com.heymilo.order.entity.DeliveryCompany;
 import com.heymilo.order.entity.OneTimeOrder;
 import com.heymilo.order.entity.Order;
 import com.heymilo.order.entity.OrderItem;
 import com.heymilo.order.entity.OrderStatus;
-import com.heymilo.order.entity.SubscriptionOrder;
 import com.heymilo.order.exception.OrderException;
 import com.heymilo.order.exception.OutOfStockException;
+import com.heymilo.payment.Payment;
+import com.heymilo.payment.PaymentService;
 import com.heymilo.shop.entity.Product;
 import com.heymilo.shop.product.ProductService;
 import com.heymilo.shop.product.StockService;
+import com.heymilo.subscription.entity.SubscriptionOrder;
 import com.heymilo.ui.param.OrderSearchModel;
 
 @Service
@@ -54,15 +55,18 @@ public class OrderServiceImpl implements OrderService {
 	public OneTimeOrder createOrder(OrderDTO orderDto, User user)
 			throws OrderException {
 		
+		Payment payment = null;
+		
 		try {
-		//1. orderitem별로 validation을 한다. 재고수량 확인.
+		//1. orderitem별로 validation을 한다. 재고수량 확인 및 재고를 Lock처리한다.
 			checkStock(orderDto.getOrderItems());
-		
-		//2. PG사에 승인요청을 한다. 이 부분이 인증을 거친 이후에 처리되야한다. 이부분은 추후에 KCP와 연결하는 부분이 처리되면 하자.
 			
-		
-		//3. 오더를 생성시킨다.
 			OneTimeOrder order = generateOrder(orderDto, user);
+			
+		//2. PG사에 승인요청을 한다. 
+			payment = paymentService.requestPayment(order, orderDto.getPaymentParam());
+		
+		//3. 오더를 저장한다.
 			orderDao.save(order);
 			
 		//4. 각각의 재고를 줄인다. 이때에 재고가 부족할수있으니 다시 체크한다.
@@ -74,9 +78,17 @@ public class OrderServiceImpl implements OrderService {
 			
 		} catch (OutOfStockException outOfStock) {
 			log.info("OutOfStock ", outOfStock);
+			if(payment != null) {
+				//취소 처리를 한다.
+				
+			}
 			throw outOfStock;
 		} catch (Exception e) {
 			log.error("Order Create Error ", e);
+			if(payment != null) {
+				//취소 처리를 한다.
+				
+			}
 			throw new OrderException(e.getMessage());
 		}
 	}
@@ -101,7 +113,9 @@ public class OrderServiceImpl implements OrderService {
 		order.setStatus(OrderStatus.ORDERD);
 		order.setUser(user);
 		order.setActive(true);
-		order.setOrderNo(generateOrderNo(user.getId()));
+		
+		if(order.getOrderNo() == null)
+			order.setOrderNo(generateOrderNo(user.getId()));
 		
 		double totalPrice = 0;
 		String productDesc=null;
@@ -129,7 +143,7 @@ public class OrderServiceImpl implements OrderService {
 		return order;
 	}
 
-	private String generateOrderNo(Long memberId) {
+	public String generateOrderNo(Long memberId) {
 		Date current = new Date();
 		return String.valueOf(memberId + current.getTime());
 	}
@@ -138,7 +152,11 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public SubscriptionOrder createSubscriptionOrder(OrderDTO orderDto,
 			User user) throws OrderException {
-		// TODO Auto-generated method stub
+		
+		
+		
+		
+		
 		return null;
 	}
 

@@ -1,4 +1,4 @@
-package com.heymilo.order.entity;
+package com.heymilo.payment;
 
 public enum PayType {
 	CARD,PHONE
